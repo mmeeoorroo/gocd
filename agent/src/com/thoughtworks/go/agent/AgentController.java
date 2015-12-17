@@ -76,8 +76,8 @@ public class AgentController {
         this.packageAsRepositoryExtension = packageAsRepositoryExtension;
         this.scmExtension = scmExtension;
         this.taskExtension = taskExtension;
-        ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
-        hostName = SystemUtil.getLocalhostNameOrRandomNameIfNotFound();
+        ipAddress = systemEnvironment.getEnvironmentVariable("GO_AGENT_IP") != null ? systemEnvironment.getEnvironmentVariable("GO_AGENT_IP") : SystemUtil.getFirstLocalNonLoopbackIpAddress();
+        hostName = systemEnvironment.getEnvironmentVariable("GO_AGENT_HOSTNAME") != null ? systemEnvironment.getEnvironmentVariable("GO_AGENT_HOSTNAME") : SystemUtil.getLocalhostNameOrRandomNameIfNotFound();
         this.server = server;
         this.manipulator = manipulator;
         this.sslInfrastructureService = sslInfrastructureService;

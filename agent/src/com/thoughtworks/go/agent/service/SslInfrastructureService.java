@@ -103,7 +103,7 @@ public class SslInfrastructureService {
     }
 
     private void register() throws Exception {
-        String hostName = SystemUtil.getLocalhostNameOrRandomNameIfNotFound();
+        String hostName = new SystemEnvironment().getEnvironmentVariable("GO_AGENT_HOSTNAME") != null ? new SystemEnvironment().getEnvironmentVariable("GO_AGENT_HOSTNAME") : SystemUtil.getLocalhostNameOrRandomNameIfNotFound();
         Registration keyEntry = null;
         while (keyEntry == null || keyEntry.getChain().length == 0) {
             File autoRegisterPropertiesFile = new File("config", "autoregister.properties");
