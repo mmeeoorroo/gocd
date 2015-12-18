@@ -63,7 +63,11 @@ public class GitCommand extends SCMCommand {
     }
 
     public Modification latestModification() {
-        return gitLog("-1", "--date=iso", "--pretty=medium").get(0);
+        return latestModification(1).get(0);
+    }
+
+    public List<Modification> latestModification(int offset) {
+        return gitLog(String.format("-%s", offset), "--date=iso", "--pretty=medium");
     }
 
     public List<Modification> modificationsSince(Revision revision) {

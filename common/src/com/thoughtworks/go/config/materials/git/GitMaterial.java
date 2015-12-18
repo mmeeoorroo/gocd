@@ -95,7 +95,7 @@ public class GitMaterial extends ScmMaterial {
 
     public List<Modification> latestModification(File baseDir, final SubprocessExecutionContext execCtx) {
         ArrayList<Modification> mods = new ArrayList<Modification>();
-        mods.add(getGit(baseDir).latestModification());
+        mods.addAll(getGit(baseDir).latestModification(GitMaterialConfig.LATEST_MODIFICATIONS));
         return mods;
     }
 

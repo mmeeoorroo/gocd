@@ -42,6 +42,7 @@ public class GitMaterialConfig extends ScmMaterialConfig {
     public static final String URL = "url";
     public static final String BRANCH = "branch";
     public static final String DEFAULT_BRANCH = "master";
+    public static final int LATEST_MODIFICATIONS = 20;
 
     private GitMaterialConfig() {
         super(TYPE);
